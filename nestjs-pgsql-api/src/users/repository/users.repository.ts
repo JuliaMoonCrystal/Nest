@@ -1,4 +1,4 @@
-import { EntityRepository, Repository } from 'typeorm';
+import { EntityRepository } from 'typeorm/decorator/EntityRepository';
 import * as bcrypt from 'bcrypt';
 import * as crypto from 'crypto';
 import {
@@ -8,6 +8,7 @@ import {
 import { User } from '../entity/user.entity';
 import { CreateUserDto } from '../dtos/create-user.dto';
 import { UserRole } from '../roles/roles';
+import { Repository } from 'typeorm';
 
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {

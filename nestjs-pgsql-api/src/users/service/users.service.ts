@@ -7,16 +7,13 @@ import { UserRole } from '../roles/roles';
 
 @Injectable()
 export class UsersService {
-  constructor(
-    @InjectRepository(UserRepository)
-    private userRepository: UserRepository,
-  ) {}
-  
-  async createAdminUser(createUserDto: CreateUserDto): Promise<User> {
-    if (createUserDto.password != createUserDto.passwordConfirmation) {
-      throw new UnprocessableEntityException('As senhas não conferem');
-    } else {
-      return this.userRepository.createUser(createUserDto, UserRole.ADMIN);
+    constructor(private readonly userRepository: UserRepository) { }
+
+    async createAdminUser(createUserDto: CreateUserDto): Promise<User> {
+        if (createUserDto.password != createUserDto.passwordConfirmation) {
+            throw new UnprocessableEntityException('As senhas não conferem');
+        } else {
+            return this.userRepository.createUser(createUserDto, UserRole.ADMIN);
+        }
     }
-  }
 }
