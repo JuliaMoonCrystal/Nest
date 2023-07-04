@@ -12,9 +12,7 @@ export class UsersController {
   async createAdminUser(
     @Body() createUserDto: CreateUserDto,
   ): Promise<ReturnUserDto> {
-    const role: UserRole = UserRole.ADMIN; // Defina o valor correto para o papel de administrador
-  
-    const user = await this.usersService.createAdminUser(createUserDto, role);
+    const user = await this.usersService.createAdminUser(createUserDto);
     return {
       user,
       message: 'Administrador cadastrado com sucesso',
