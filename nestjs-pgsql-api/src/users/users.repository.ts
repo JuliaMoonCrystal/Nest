@@ -4,9 +4,9 @@ import {
     ConflictException,
     InternalServerErrorException,
 } from '@nestjs/common';
-import { User } from '../entity/user.entity';
-import { CreateUserDto } from '../dtos/create-user.dto';
-import { UserRole } from '../roles/roles';
+import { User } from './user.entity';
+import { CreateUserDto } from './dtos/create-user.dto';
+import { UserRole } from './roles/roles';
 import { EntityRepository, Repository } from 'typeorm';
 
 @EntityRepository(User)
